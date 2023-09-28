@@ -1,17 +1,10 @@
 'use client';
 import 'animate.css';
-import {
-  MagnifyingGlassCircleIcon,
-  Bars4Icon,
-  XMarkIcon,
-} from '@heroicons/react/20/solid';
+import { Bars4Icon, XMarkIcon } from '@heroicons/react/20/solid';
 import { useState } from 'react';
+import SearchBar from './search-bar';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isShowInput, setIsShowInput] = useState(false);
-  const isShowSearch = () => {
-    setIsShowInput((prevValue) => !prevValue);
-  };
   const handleIsOpen = () => {
     setIsOpen((prevValue) => !prevValue);
   };
@@ -45,25 +38,7 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
-      {isShowInput ? (
-        <div className="flex items-center justify-center">
-          <form>
-            <input
-              type="text"
-              placeholder="search"
-              className="border-2 border-black px-2 py-1.5 rounded-md"
-            />
-          </form>
-          <div onClick={isShowSearch}>
-            <MagnifyingGlassCircleIcon className="w-6 h-6 text-slate-600 cursor-pointer absolute top-7 right-7  " />
-          </div>
-        </div>
-      ) : (
-        <MagnifyingGlassCircleIcon
-          className="w-6 h-6 text-slate-600 cursor-pointer hidden sm:block"
-          onClick={isShowSearch}
-        />
-      )}
+      <SearchBar />
       <div className="sm:hidden">
         <button className="mr-5  mt-1" onClick={handleIsOpen}>
           {isOpen ? (
