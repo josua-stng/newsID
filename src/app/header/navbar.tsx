@@ -3,6 +3,7 @@ import 'animate.css';
 import { Bars4Icon, XMarkIcon } from '@heroicons/react/20/solid';
 import { useState } from 'react';
 import SearchBar from './search-bar';
+import Link from 'next/link';
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const handleIsOpen = () => {
@@ -21,12 +22,15 @@ export default function Navbar() {
               : 'hidden sm:flex [&>*]:cursor-pointer'
           }`}
         >
-          <li className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer">
+          <Link href={'/'} className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer">
             News
-          </li>
-          <li className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer">
+          </Link>
+          <Link
+            href={'/sports'}
+            className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer"
+          >
             Sports
-          </li>
+          </Link>
           <li className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer">
             Politics
           </li>
@@ -38,6 +42,7 @@ export default function Navbar() {
           </li>
         </ul>
       </div>
+
       <SearchBar />
       <div className="sm:hidden">
         <button className="mr-5  mt-1" onClick={handleIsOpen}>
