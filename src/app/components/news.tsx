@@ -1,20 +1,19 @@
 'use client';
-
 import { useEffect, useState } from 'react';
 import NewsLayout from './news-layout';
-
+import { PropsNews } from '../context/props-type-news';
 export default function News() {
   const isClient = typeof window !== 'undefined';
   const [newsCategory, setNewsCategory] = useState(() => {
     return isClient ? localStorage.getItem('newsCategory') || 'CNN' : 'CNN';
   });
 
-  const [news, setNews] = useState<any>([]);
+  const [news, setNews] = useState([]);
   const categoryMapping: { [key: string]: string } = {
-    cnn: 'https://api-berita-indonesia.vercel.app/cnn/terbaru/',
-    cnbc: 'https://api-berita-indonesia.vercel.app/cnbc/terbaru/',
-    tribun: 'https://api-berita-indonesia.vercel.app/tribun/terbaru/',
-    okezone: 'https://api-berita-indonesia.vercel.app/okezone/terbaru/',
+    cnn: `${process.env.NEXT_PUBLIC_BASE_URL}/cnn/terbaru/`,
+    cnbc: `${process.env.NEXT_PUBLIC_BASE_URL}/cnbc/terbaru/`,
+    tribun: `${process.env.NEXT_PUBLIC_BASE_URL}/tribun/terbaru/`,
+    okezone: `${process.env.NEXT_PUBLIC_BASE_URL}/okezone/terbaru/`,
   };
   const getNewsData = async () => {
     try {
@@ -50,10 +49,11 @@ export default function News() {
           <option value="okezone">OKEZONE</option>
         </select>
         <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-2 max-w-8xl mx-auto">
-          {news.map((news: any, idx: string) => {
+          {news.map((news: PropsNews, idx: number) => {
             return (
               <div key={idx}>
                 <NewsLayout
+                  newsLink={news.link}
                   image={news.thumbnail}
                   description={news.description}
                   date={news.pubDate}
