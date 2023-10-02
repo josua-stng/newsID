@@ -26,20 +26,26 @@ export default function Navbar() {
             News
           </Link>
           <Link
-            href={'/sports'}
+            href={'/tech'}
             className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer"
           >
+            Tech
+          </Link>
+          <Link 
+          href={'/economy'}
+           className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer">
+            Economy
+          </Link>
+          <Link
+          href={'/sports'}
+          className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer">
             Sports
           </Link>
-          <li className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer">
-            Politics
-          </li>
-          <li className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer">
-            Entertaiment
-          </li>
-          <li className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer ">
+          <Link 
+          href={'/lifestyle'}
+          className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer ">
             Lifestyle
-          </li>
+          </Link>
         </ul>
       </div>
 
