@@ -13,7 +13,9 @@ export default function Navbar() {
     <div className=" flex justify-between md:justify-between items-center px-5 py-5 font-sans bg-slate-50 sticky top-0">
       <div className="flex items-center justify-around">
         <div className="">
-          <h1 className="ml-3 mr-7">News ID</h1>
+          <Link href={'/'} className="ml-3 mr-7">
+            News ID
+          </Link>
         </div>
         <ul
           className={`${
@@ -22,7 +24,10 @@ export default function Navbar() {
               : 'hidden sm:flex [&>*]:cursor-pointer'
           }`}
         >
-          <Link href={'/'} className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer">
+          <Link
+            href={'/'}
+            className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer"
+          >
             News
           </Link>
           <Link
@@ -31,19 +36,22 @@ export default function Navbar() {
           >
             Tech
           </Link>
-          <Link 
-          href={'/economy'}
-           className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer">
+          <Link
+            href={'/economy'}
+            className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer"
+          >
             Economy
           </Link>
           <Link
-          href={'/sports'}
-          className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer">
+            href={'/sports'}
+            className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer"
+          >
             Sports
           </Link>
-          <Link 
-          href={'/lifestyle'}
-          className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer ">
+          <Link
+            href={'/lifestyle'}
+            className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer "
+          >
             Lifestyle
           </Link>
         </ul>
