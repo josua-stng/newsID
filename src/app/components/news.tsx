@@ -3,19 +3,14 @@ import { useEffect, useState, Suspense } from 'react';
 import NewsLayout from './news-layout';
 import { PropsNews } from '../context/props-type-news';
 import LoadingSkeleton from '../loading';
+import { categoryMapping } from '../context/category-mapping-news';
 export default function News() {
   const isClient = typeof window !== 'undefined';
   const [newsCategory, setNewsCategory] = useState(() => {
-    return isClient ? localStorage.getItem('newsCategory') || 'CNN' : 'CNN';
+    return isClient ? localStorage.getItem('newsCategory') || 'cnn' : 'cnn';
   });
 
   const [news, setNews] = useState([]);
-  const categoryMapping: { [key: string]: string } = {
-    cnn: `${process.env.NEXT_PUBLIC_BASE_URL}/cnn/terbaru/`,
-    cnbc: `${process.env.NEXT_PUBLIC_BASE_URL}/cnbc/terbaru/`,
-    tribun: `${process.env.NEXT_PUBLIC_BASE_URL}/tribun/terbaru/`,
-    okezone: `${process.env.NEXT_PUBLIC_BASE_URL}/okezone/terbaru/`,
-  };
   const getNewsData = async () => {
     try {
       const url = categoryMapping[newsCategory] || categoryMapping[''];

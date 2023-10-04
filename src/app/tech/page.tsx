@@ -2,23 +2,15 @@
 import { useEffect, useState } from 'react';
 import NewsLayout from '../components/news-layout';
 import { PropsNews } from '../context/props-type-news';
+import { generateApiUrlTech } from '../context/api-utils';
 
 export default function Tech() {
+  const isClient = typeof window !== 'undefined';
   const [newsTech, setNewsTech] = useState([]);
-  const typeNews =
-    typeof window !== 'undefined'
-      ? localStorage.getItem('newsCategory')
-      : 'CNN';
-  const apiUrl =
-    typeNews === 'cnn'
-      ? `${process.env.NEXT_PUBLIC_BASE_URL}/cnn/teknologi/`
-      : typeNews === 'cnbc'
-      ? `${process.env.NEXT_PUBLIC_BASE_URL}/cnbc/tech/`
-      : typeNews === 'tribun'
-      ? `${process.env.NEXT_PUBLIC_BASE_URL}/tribun/terbaru/`
-      : typeNews === 'okezone'
-      ? `${process.env.NEXT_PUBLIC_BASE_URL}/okezone/techno/`
-      : '';
+  const [typeNewsData] = useState(() => {
+    return isClient ? localStorage.getItem('newsCategory') || 'cnn' : 'cnn';
+  });
+  const apiUrl = generateApiUrlTech(typeNewsData);
   const handleDataNews = async () => {
     try {
       const res = await fetch(apiUrl);
@@ -32,7 +24,7 @@ export default function Tech() {
   useEffect(() => {
     handleDataNews();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [typeNews]);
+  }, [typeNewsData]);
 
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-2 max-w-8xl mx-auto">
