@@ -20,13 +20,13 @@ export default function Navbar() {
         <ul
           className={`${
             isOpen
-              ? 'flex flex-col fixed left-0 right-0 bottom-0 top-14 leading-10 h-60 pl-5 mb-10 bg-zinc-800 pt-5 cursor-pointer z-10 animate__animated text-white animate__fadeInLeft'
+              ? 'flex flex-col fixed left-0 right-0 bottom-0 top-14 leading-10 h-52 pl-5 mb-10 bg-slate-700 pt-5 cursor-pointer z-50 animate__animated text-white animate__fadeInLeft'
               : 'hidden sm:flex [&>*]:cursor-pointer'
           }`}
         >
           <Link
             href={'/'}
-            className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer"
+            className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer hidden md:block"
           >
             News
           </Link>
@@ -50,13 +50,12 @@ export default function Navbar() {
           </Link>
           <Link
             href={'/lifestyle'}
-            className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer "
+            className="ml-3 mr-3 navbar-menu navbar-menu-list cursor-pointer"
           >
             Lifestyle
           </Link>
         </ul>
       </div>
-
       <SearchBar />
       <div className="sm:hidden">
         <button className="mr-5  mt-1" onClick={handleIsOpen}>
