@@ -1,46 +1,58 @@
 export function generateApiUrlTech(typeNewsData: string) {
-  return typeNewsData === 'cnn'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/cnn/teknologi/`
-    : typeNewsData === 'cnbc'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/cnbc/tech/`
-    : typeNewsData === 'tribun'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/tribun/terbaru/`
-    : typeNewsData === 'okezone'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/okezone/techno/`
-    : '';
+  switch (typeNewsData) {
+    case 'cnn':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/cnn/teknologi/`;
+    case 'cnbc':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/cnbc/tech/`;
+    case 'tribun':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/tribun/terbaru/`;
+    case 'okezone':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/okezone/techno/`;
+    default:
+      return '';
+  }
 }
 export function generateApiUrlSport(typeNewsData: string) {
-  return typeNewsData === 'cnn'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/cnn/olahraga/`
-    : typeNewsData === 'cnbc'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/sindonews/sports/`
-    : typeNewsData === 'tribun'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/merdeka/olahraga/`
-    : typeNewsData === 'okezone'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/okezone/sports/`
-    : '';
+  switch (typeNewsData) {
+    case 'cnn':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/cnn/olahraga/`;
+    case 'cnbc':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/sindonews/sports/`;
+    case 'tribun':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/merdeka/olahraga/`;
+    case 'okezone':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/okezone/sports/`;
+    default:
+      return '';
+  }
 }
 
 export function generateApiUrlEconomy(typeNewsData: string) {
-  return typeNewsData === 'cnn'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/cnn/ekonomi/`
-    : typeNewsData === 'cnbc'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/cnbc/opini/`
-    : typeNewsData === 'tribun'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/tribun/terbaru/`
-    : typeNewsData === 'okezone'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/okezone/economy/`
-    : '';
+  switch (typeNewsData) {
+    case 'cnn':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/cnn/ekonomi/`;
+    case 'cnbc':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/cnbc/opini/`;
+    case 'tribun':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/tribun/terbaru/`;
+    case 'okezone':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/okezone/economy/`;
+    default:
+      return '';
+  }
 }
 
 export function generateApiUrlLifestyle(typeNewsData: string) {
-  return typeNewsData === 'cnn'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/cnn/gayaHidup/`
-    : typeNewsData === 'cnbc'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/cnbc/lifestyle/`
-    : typeNewsData === 'tribun'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/tribun/terbaru/`
-    : typeNewsData === 'okezone'
-    ? `${process.env.NEXT_PUBLIC_BASE_URL}/okezone/lifestyle/`
-    : '';
+  switch (typeNewsData) {
+    case 'cnn':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/cnn/gayaHidup/`;
+    case 'cnbc':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/cnbc/lifestyle/`;
+    case 'tribun':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/tribun/terbaru/`;
+    case 'okezone':
+      return `${process.env.NEXT_PUBLIC_BASE_URL}/okezone/lifestyle/`;
+    default:
+      return '';
+  }
 }
