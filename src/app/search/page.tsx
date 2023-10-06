@@ -4,22 +4,17 @@ import LoadingSkeleton from '../loading';
 import { PropsNews } from '../context/props-type-news';
 import NewsLayout from '../components/news-layout';
 import { useSearchParams } from 'next/navigation';
+import { categoryMapping } from '../context/category-mapping-news';
 
 export default function Search() {
   const isClient = typeof window !== 'undefined';
   const searchParams = useSearchParams();
   const query = searchParams.get('q');
-  console.log(query);
-  const [newsCategory, _] = useState(() => {
-    return isClient ? localStorage.getItem('newsCategory') || 'CNN' : 'CNN';
+  const [newsCategory] = useState(() => {
+    return isClient ? localStorage.getItem('newsCategory') || 'cnn' : 'cnn';
   });
   const [news, setNews] = useState<PropsNews[]>([]);
-  const categoryMapping: { [key: string]: string } = {
-    cnn: `${process.env.NEXT_PUBLIC_BASE_URL}/cnn/terbaru/`,
-    cnbc: `${process.env.NEXT_PUBLIC_BASE_URL}/cnbc/terbaru/`,
-    tribun: `${process.env.NEXT_PUBLIC_BASE_URL}/tribun/terbaru/`,
-    okezone: `${process.env.NEXT_PUBLIC_BASE_URL}/okezone/terbaru/`,
-  };
+
   const handlerNewsData = async () => {
     try {
       const url = categoryMapping[newsCategory] || categoryMapping[''];
