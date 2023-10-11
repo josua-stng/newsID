@@ -16,7 +16,7 @@ export default function NewsLayout({
           height={150}
           src={image}
           style={{ objectFit: 'cover' }}
-          className="mx-auto pb-5"
+          className="mx-auto pb-5 w-max h-44 rounded-sm"
         />
         <p className="line-clamp-2 text-">{description}</p>
         <p className="mt-2 bg-green-200 max-w-max px-2 py-1 rounded-sm font-semibold">
