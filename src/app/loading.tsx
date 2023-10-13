@@ -1,6 +1,6 @@
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
-export default function LoadingSkeleton({ count }: any) {
+export default function LoadingSkeleton({ count }: {count:number}) {
   const skeletonCount = count || 18;
   return (
     <div className="grid md:grid-cols-2 lg:grid-cols-3 justify-center items-center gap-2 max-w-8xl mx-auto z-10">

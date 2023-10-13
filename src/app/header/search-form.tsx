@@ -1,12 +1,19 @@
 'use client';
 import { MagnifyingGlassCircleIcon } from '@heroicons/react/20/solid';
+import { ChangeEventHandler, FormEventHandler, MouseEventHandler } from 'react';
+type PropsSearchForm = {
+  onClick: MouseEventHandler<HTMLDivElement>;
+  onSubmit: FormEventHandler<HTMLFormElement>;
+  query: string;
+  onChange: ChangeEventHandler<HTMLInputElement>;
+};
 
 export default function SearchForm({
   onClick,
   onSubmit,
   query,
   onChange,
-}: any) {
+}: PropsSearchForm) {
   return (
     <div className="flex items-center justify-center">
       <form onSubmit={onSubmit}>

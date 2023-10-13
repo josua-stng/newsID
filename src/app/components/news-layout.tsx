@@ -1,12 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+type PropsNewsLayout={
+  newsLink:string,
+  image:string,
+  description:string,
+  date:string
+}
 export default function NewsLayout({
   newsLink,
   image,
   description,
   date,
-}: any) {
+}: PropsNewsLayout) {
   return (
     <Link href={newsLink} target='_blank'>
       <div className="max-w-xs md:max-w-sm lg:max-w-md mx-auto border-2 border-gray-300 mb-5 p-5 font-sans cursor-pointer hover:mb-[-2px]">

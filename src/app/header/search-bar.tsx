@@ -1,7 +1,7 @@
 'use client';
 import { MagnifyingGlassCircleIcon } from '@heroicons/react/20/solid';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import SearchForm from './search-form';
 
 export default function SearchBar() {
@@ -20,7 +20,7 @@ export default function SearchBar() {
   const isShowSearch = () => {
     setIsShowInput((prevValue) => !prevValue);
   };
-  const onChangeValue = (event: any) => {
+  const onChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   };
   return (
