@@ -8,7 +8,7 @@ export default function SearchBar() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [isShowInput, setIsShowInput] = useState(false);
-  const [query, setQuery] = useState(searchParams.get('') ?? '');
+  const [query, setQuery] = useState(searchParams.get('q') ?? '');
   const handleClick = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (!query.trim()) {
