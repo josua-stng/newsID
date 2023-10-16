@@ -17,6 +17,7 @@ export default function NewsLayout({
     <Link href={newsLink} target='_blank'>
       <div className="max-w-xs md:max-w-sm lg:max-w-md mx-auto border-2 border-gray-300 mb-5 p-5 font-sans cursor-pointer hover:mb-[-2px]">
         <Image
+        unoptimized
           alt="news-image"
           width={280}
           height={150}
